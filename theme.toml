@@ -1,0 +1,12 @@
+name = 'Theme name'
+license = 'MIT'
+licenselink = 'https://github.com/owner/repo/LICENSE'
+description = 'Theme description'
+version = "0.0"
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/owner/repo'
+
+# If the theme has a single author
+[author]
+name = 'Your name'
+homepage = 'Your website'

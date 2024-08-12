@@ -1,0 +1,5 @@
+{{ $sass_template := resources.Get "css/style.scss" }}
+{{ $style := $sass_template | toCSS }}
+{{- $style = $style | postCSS | resources.Minify  -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
