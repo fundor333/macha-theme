@@ -1,21 +1,23 @@
 {{ define "main" }}
 
-<a class="h-card no-underline u-url"  rel="me" href="{{ .Site.BaseURL }}">
+<span class="h-card">
 <div class="grid gap-x-10 grid-cols-7 content-center">
   <div class="content-center col-span-3">
     <img src="{{ .Site.Author.avatar }}" alt="{{ .Site.Title }}" class=" u-logo u-photo rounded-lg shadow-2xl">
   </div>
   <div class=" col-span-4">
+    <a class="no-underline u-url"  rel="me" href="{{ .Site.BaseURL }}">
     <h2 class="no-underline p-name p-nickname ">
       {{.Site.Author.name }}
     </h2>
+  </a>
     <p class="p-note">
       {{.Site.Author.description}}
     </p>
 
   </div>
 </div>
-</a>
+</span>
 
 <div class='flex justify-around '>
     {{ $currentPage := . }}
