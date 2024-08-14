@@ -8,42 +8,46 @@
 
     {{ $dataJ := getJSON $url }}
     <div class="container-fluid">
-        {{  range $dataJ.children }}
-    {{if eq (index . "wm-property") "in-reply-to"}}
-    {{ partial "webmention/in-reply-to.html" . }}
-  {{end}}
-{{end}}
+      {{  range $dataJ.children }}
+        {{if eq (index . "wm-property") "in-reply-to"}}
+          {{ partial "webmention/in-reply-to.html" . }}
+        {{end}}
+      {{end}}
     </div>
-    <div class="row p-2">
-        {{  range $dataJ.children }}
-  {{if eq (index . "wm-property") "like-of"}}
-    {{ partial "webmention/like-of.html" . }}
-  {{end}}
-  {{if eq (index . "wm-property") "repost-of"}}
-    {{ partial "webmention/repost-of.html" . }}
-  {{end}}
-  {{if eq (index . "wm-property") "bookmark-of"}}
-    {{ partial "webmention/bookmark-of.html" . }}
-  {{end}}
-{{end}}
+    <div class="grid grid-cols-6">
+      {{  range $dataJ.children }}
+
+        {{if eq (index . "wm-property") "like-of"}}
+          {{ partial "webmention/like-of.html" . }}
+        {{end}}
+
+        {{if eq (index . "wm-property") "repost-of"}}
+          {{ partial "webmention/repost-of.html" . }}
+        {{end}}
+
+        {{if eq (index . "wm-property") "bookmark-of"}}
+          {{ partial "webmention/bookmark-of.html" . }}
+        {{end}}
+
+      {{end}}
     </div>
     <div class="row">
-        {{  range $dataJ.children }}
-    {{if eq (index . "wm-property") "mention-of"}}
-      {{ partial "webmention/mention-of.html" . }}
-    {{end}}
-  {{end}}
+      {{  range $dataJ.children }}
+        {{if eq (index . "wm-property") "mention-of"}}
+          {{ partial "webmention/mention-of.html" . }}
+        {{end}}
+      {{end}}
     </div>
     {{  range $dataJ.children }}
-    <div class="row">
+      <div class="row">
         <div class="col">
-            <p>
-                {{if eq (index . "wm-property") "rsvp"}}
-      {{ partial "webmention/rsvp.html" . }}
-    {{end}}
-            </p>
+          <p>
+            {{if eq (index . "wm-property") "rsvp"}}
+              {{ partial "webmention/rsvp.html" . }}
+            {{end}}
+          </p>
         </div>
-    </div>
+      </div>
     {{end}}
 
     <div class="row text-center" id="social-share"></div>
