@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+<a class="h-card no-underline" href="{{ .Site.BaseURL }}">
+<div class="grid gap-x-10 grid-cols-7 content-center">
+  <div class="content-center col-span-3">
+    <img src="{{ .Site.Author.avatar }}" alt="{{ .Site.Title }}" class=" u-logo u-photo rounded-lg shadow-2xl">
+  </div>
+  <div class=" col-span-4">
+    <h2 class="no-underline p-name p-nickname ">
+      {{.Site.Author.name }}
+    </h2>
+    <p class="p-note">
+      {{.Site.Author.description}}
+    </p>
+
+  </div>
+</div>
+</a>
+
+<div class='flex justify-around '>
+    {{ $currentPage := . }}
+    {{ range .Site.Data.social }}
+    <div>
+    <a rel="me" href="{{ .url }}">
+      <i class="fa-brands fa-{{ .identifier }} fa-2xl" aria-hidden="true">
+      </i>
+    </a>
+    </div>
+    {{ end }}
+</div>
+
+<hr>
+
+<h2>This site</h2>
+<div class="text-center container">
+  <div class="row">
+    <div class="p-note e-content">
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+
+<h2>Recent Posts</h2>
+
+{{ range  first 10 (where .Site.RegularPages "Section" "post")  }}
+
+{{ .Render "summary" }}
+
+{{ end }}
+
+{{ end }}

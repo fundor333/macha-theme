@@ -1,3 +1,101 @@
 @tailwind base;
+
+@layer base {
+
+
+	html {
+		font-family: blackbarongothic, system-ui, sans-serif;
+	}
+
+	h1 {
+		@apply no-underline;
+		font-family: lexend, system-ui, serif;
+
+	}
+
+	h2 {
+		@apply no-underline;
+		font-family: lexend, system-ui, serif;
+
+	}
+
+	h3 {
+		@apply no-underline;
+		font-family: lexend, system-ui, serif;
+
+	}
+
+	h4 {
+		@apply no-underline;
+		font-family: lexend, system-ui, serif;
+
+	}
+}
+
 @tailwind components;
 @tailwind utilities;
+
+/* lexend-regular - latin */
+@font-face {
+	font-family: 'Lexend';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/lexend-v16-latin-regular.eot');
+	/* IE9 Compat Modes */
+	src: local(''),
+		url('/fonts/lexend-v16-latin-regular.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('/fonts/lexend-v16-latin-regular.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('/fonts/lexend-v16-latin-regular.woff') format('woff'),
+		/* Modern Browsers */
+		url('/fonts/lexend-v16-latin-regular.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('/fonts/lexend-v16-latin-regular.svg#Lexend') format('svg');
+	/* Legacy iOS */
+	font-display: swap;
+}
+
+
+@font-face {
+	font-family: 'DovesType-Regular';
+	src: url('/fonts/DovesType-Regular.eot');
+	src: url('/fonts/DovesType-Regular.eot') format('embedded-opentype'),
+		url('/fonts/DovesType-Regular.woff2') format('woff2'),
+		url('/fonts/DovesType-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: 150% 300%
+}
+
+@font-face {
+	font-family: 'Black-Baron-Gothic';
+	src: url('/fonts/Black-Baron Gothic.otf');
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: 150% 300%;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Catalogue';
+	src: url('/fonts/Catalogue 2.0.ttf');
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: 150% 300%;
+	font-display: swap;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	a {
+		@apply no-underline !important;
+	}
+
+	a:hover {
+		@apply underline !important;
+
+	}
+}

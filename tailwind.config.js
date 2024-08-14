@@ -3,10 +3,18 @@ module.exports = {
 	content: ["content/**/*.md", "layouts/**/*.html"],
 	theme: {
 		fontFamily: {
-			sans: ['lexend', 'sans-serif'],
-			serif: ['Dovestype', 'serif'],
+			blackbarongothic: ["Black-Baron-Gothic", "sans-serif"],
+			catalogue: ["Catalogue", "serif"],
+			dovestype: ["DovesType-Regular", "serif"],
+			lexend: ["Lexend", "sans-serif"],
 		},
-		extend: {},
+		extend: {
+		},
 	},
-	plugins: [],
+	plugins: [
+
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/container-queries'),
+	],
 };

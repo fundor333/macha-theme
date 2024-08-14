@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<div class="e-content">
+  {{ .Content }}
+</div>
+
+<hr>
+
+  {{ range .Pages.GroupByDate "2006" }}
+      <p class="font-bold prose-invert prose-2xl ">{{ .Key }}</p>
+      <!-- You can add another range here to get individual posts, for example: -->
+      {{ range .Pages }}
+        {{ .Render "summary" }}
+      {{ end }}
+      <hr>
+
+  {{ end }}
+
+{{ end }}

@@ -1,3 +1,54 @@
-<h1 class="text-center">{{ site.Title }}</h1>
 
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+
+{{/* Just modified a bit to work with render_image hook and output webp images   */}}
+{{/* get file that matches the filename as specified as src=""  */}}
+{{ $src := resources.Get .Site.Params.logo  }}
+
+{{ if $src }}
+
+
+{{ $tinyw := default "500x webp" }}
+{{ $smallw := default "800x webp" }}
+{{ $mediumw := default "1200x webp" }}
+{{ $largew := default "1500x webp" }}
+
+{{ $data := newScratch }}
+{{ $data.Set "tiny" ($src.Resize $tinyw) }}
+{{ $data.Set "small" ($src.Resize $smallw) }}
+{{ $data.Set "medium" ($src.Resize $mediumw) }}
+{{ $data.Set "large" ($src.Resize $largew) }}
+
+
+{{ $tiny := $data.Get "tiny" }}
+{{ $small := $data.Get "small" }}
+{{ $medium := $data.Get "medium" }}
+{{ $large := $data.Get "large" }}
+
+<div class="grid justify-items-center">
+    <picture alt="{{ .Site.Title }}" class="object-cover max-w-20" loading="lazy">
+
+      <source media="(max-width: 376px)"
+          srcset="{{with $tiny.RelPermalink }}{{.}}{{ end }}">
+
+      <source media="(max-width: 992px)"
+          srcset="{{with $small.RelPermalink }}{{.}}{{ end }}">
+
+      <source media="(max-width: 1400px)"
+          srcset="{{with $medium.RelPermalink }}{{.}}{{ end }}">
+
+      <source media="(min-width: 1600px)"
+          srcset="{{with $large.RelPermalink }}{{.}}{{ end }}">
+
+      <img alt="{{ .Site.Title }}" title="{{ .Site.Title }}" src="{{ $src }}"
+          height="{{ $src.Height}}" width="{{ $src.Width }}" class="max-w-20 rounded-lg shadow-2xl">
+
+    </picture>
+
+  {{/* Since I do image-response class, the only thing that really
+  matters is the height and width matches the image aspect ratio */}}
+
+  {{ end }}
+
+  <h1 class="text-center">{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</h1>
+</div>
+

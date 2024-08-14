@@ -12,6 +12,9 @@
 	"license": "ISC",
 	"description": "",
 	"devDependencies": {
+		"@tailwindcss/aspect-ratio": "^0.4.2",
+		"@tailwindcss/container-queries": "^0.1.1",
+		"@tailwindcss/typography": "^0.5.14",
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.4.41",
 		"postcss-cli": "^11.0.0",

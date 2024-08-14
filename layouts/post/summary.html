@@ -1,0 +1,15 @@
+{{ $date := .Date.Format "2006-01-02" }}
+{{ $lastmod := .Lastmod.Format "2006-01-02" }}
+
+{{ $date_h := .Date.Format "2006-01-02 15:04:05" }}
+{{ $lastmod_h := .Lastmod.Format "2006-01-02 15:04:05" }}
+
+<article class="h-entry">
+  <div class="text-pretty">
+
+    <a href="{{ .Permalink }}" class="no-underline">
+      <i class="fa-duotone fa-solid fa-notebook"></i>
+      <span class="underline font-bold">{{ .Title }}</span>:
+      <span href="{{ .Permalink }}" class="p-summary no-underline">{{ .Description }}</span>
+  </div>
+</article>

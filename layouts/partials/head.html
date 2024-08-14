@@ -1,8 +1,18 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{ partial "seo/seo_head.html" . }}
+
+
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
-  <!-- resources.Get "style.css" will fetch the style.css file.
-  It will not work if you mention the exact location like "./assets/style.css".-->
-  {{ $style := resources.Get "style.css" }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
+<script src="https://kit.fontawesome.com/2f3b6e2e4c.js" crossorigin="anonymous"></script>
+
+<!-- resources.Get "style.css" will fetch the style.css file.
+It will not work if you mention the exact location like "./assets/style.css".-->
+{{ $style := resources.Get "style.css" }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
+
+{{ partial "macia-indiweb/indiweb.html" . }}
+{{ partial "macia-indiweb/authentication.html" . }}
