@@ -72,9 +72,7 @@
   <hr>
 
   <div class="hidden h-card">
-    <a href="/" rel="author" class="u-author">
-      <img loading="lazy" src="{{ .Site.Params.image}}" alt="logo" class="img-fluid u-logo u-photo" width="60">
-      <p class="p-author">by {{ .Site.Author.name }}</p>
+    <a href="{{.Site.BaseURL}}" rel="author" class="p-author h-card">{{ .Site.Author.name }}</p>
     </a>
   </div>
 
