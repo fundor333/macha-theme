@@ -24,6 +24,7 @@
 {{ $medium := $data.Get "medium" }}
 {{ $large := $data.Get "large" }}
 
+<a href="{{ .Site.BaseURL }}" class="no-underline">
 <div class="grid justify-items-center">
     <picture alt="{{ .Site.Title }}" class="object-cover max-w-20" loading="lazy">
 
@@ -49,6 +50,6 @@
 
   {{ end }}
 
-  <h1 class="text-center">{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</h1>
+  <h1 class="text-center no-underline">{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</h1>
 </div>
-
+</a>

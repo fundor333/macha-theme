@@ -11,44 +11,44 @@
 
 {{ $date_h := .Date.Format "2006-01-02 15:04:05" }}
 {{ $lastmod_h := .Lastmod.Format "2006-01-02 15:04:05" }}
-<hr>
+
 <div class="h-entry">
-  <p class="d-none p-bridgy-twitter-content p-bridgy-mastodon-content">{{ .Title }} {{ .Description }} - {{ range .Params.categories }}#{{ .}} {{ end }}{{ with .Params.tags }}{{ range sort . }}#{{ .}} {{ end }}{{ end }}</p>
+  <p class="hidden p-bridgy-twitter-content p-bridgy-mastodon-content">{{ .Title }}:{{ .Description }} - {{ range .Params.categories }}#{{ .}} {{ end }}{{ with .Params.tags }}{{ range sort . }}#{{ .}} {{ end }}{{ end }}</p>
 
   <div class="container-fluid  text-justify">
-    <br>
     {{ $image := .Resources.GetMatch "{cover.webp,cover.jpg,cover.png,cover.jpeg}" }}
     {{ $resource := imageConfig (add "/content/" $image.RelPermalink) }}
 
-    <div class="text-center">
-      <img loading="lazy" class="u-photo img-fluid lazy" src="{{ $image.Permalink }}" width="{{ $resource.Width }}"
+    <div class="flex flex-col items-stretch">
+      <img loading="lazy" class="u-photo rounded-lg" src="{{ $image.Permalink }}" width="{{ $resource.Width }}"
            height="{{ $resource.Height }}" alt="Card image cap">
-    </div>
-
-    <br>
     {{if .Params.feature_link}}
-    <div class="col-10 offset-1 text-center">
-      <a href="{{ .Params.feature_link}}">{{.Params.feature_text}}</a>
-    </div>
+    <a class="self-center" href="{{ .Params.feature_link}}">{{.Params.feature_text}}</a>
     {{end}}
   </div>
-  <br>
-  <div class="container">
-    <h1 class="p-name text-center">
+<br>
+
+    <div class="flow">
+      <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
+      <i class="fa-duotone fa-solid fa-angle-right"></i>
+      <a href="{{.Site.BaseURL}}/post" class="no-underline h-breadcrumb">Post</a>
+      <i class="fa-duotone fa-solid fa-angle-right"></i>
+      <a href="{{ .Page.Permalink}}" class="no-underline h-breadcrumb u-url">{{.Title}}</a>
+    </div>
+
+    <h1 class="p-name hidden">
       {{ .Title }}
     </h1>
-  </div>
 
-  <div class="container offset-1 p-2">
     <div>
       <time class="dt-published" datetime='{{$date_h }}'></time>
-      <i class="fa-duotone theme-fundor333 fa-calendar-plus"></i> {{ $date }} |
+      <i class="fa-duotone fa-calendar-plus"></i> {{ $date }} |
       {{if ne $lastmod $date}}
 
       <time class="dt-updated" datetime='{{ $lastmod_h }}'></time>
-      <i class="fa-duotone theme-fundor333 fa-calendar-pen"></i> {{ $lastmod }} |
+      <i class="fa-duotone fa-calendar-pen"></i> {{ $lastmod }} |
       {{ end }}
-      <i class="fa-duotone theme-fundor333 fa-tags"></i>
+      <i class="fa-duotone fa-tags"></i>
 
       {{ range .Params.categories }}
       #<a class="p-category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ .}}</a>,
@@ -57,36 +57,41 @@
       #<a class="p-category tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ .}}</a>,
       {{ end }} {{ end }}
     </div>
-    <div><i class="fa-duotone theme-fundor333 fa-mug-tea"></i>{{ if gt .ReadingTime 4 }}<i
-      class="fa-duotone theme-fundor333 fa-mug-tea"></i>{{ if gt
+    <div><i class="fa-duotone fa-mug-tea"></i>{{ if gt .ReadingTime 4 }}<i
+      class="fa-duotone fa-mug-tea"></i>{{ if gt
       .ReadingTime
-      7 }}<i class="fa-duotone theme-fundor333 fa-mug-tea"></i>{{ if gt .ReadingTime 10 }}<i
-        class="fa-duotone theme-fundor333 fa-mug-tea"></i>{{ end }}{{ end }}{{
+      7 }}<i class="fa-duotone fa-mug-tea"></i>{{ if gt .ReadingTime 10 }}<i
+        class="fa-duotone fa-mug-tea"></i>{{ end }}{{ end }}{{
       end }}
-      Reading time {{.ReadingTime}} minutes | <i class="fa-duotone theme-fundor333 fa-pen-nib"></i> Word count {{.WordCount}}
+      Reading time {{.ReadingTime}} minutes | <i class="fa-duotone fa-pen-nib"></i> Word count {{.WordCount}}
     </div>
   </div>
 
-  <div class="container offset-1 p-3">
-    {{ .TableOfContents }}
-  </div>
+  {{ .TableOfContents }}
 
   <hr>
 
-  <div class="d-none">
+  <div class="hidden h-card">
     <a href="/" rel="author" class="u-author">
       <img loading="lazy" src="{{ .Site.Params.image}}" alt="logo" class="img-fluid u-logo u-photo" width="60">
       <p class="p-author">by {{ .Site.Author.name }}</p>
     </a>
   </div>
+
   <article class="flex flex-col">
 
     <div class="e-content">
       {{ .Content | safeHTML }}
+
+      {{- partial "syndication.html" . -}}
+
     </div>
-    <hr>
+
   </article>
 
+  <div class="container">
+    {{- partial "webmention.html" . -}}
+  </div>
 
   {{ $related := .Site.RegularPages.Related . | first 4 }}
   {{ with $related }}
