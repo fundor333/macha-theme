@@ -6,11 +6,11 @@
 {{ partial "micropub/summary/bookmark.html" . }}
 {{end }}
 
-{{ if (eq (.Param "micropub" ) "drink") }}
+{{ if (eq (.Param "micropub" ) "drank") }}
 {{ partial "micropub/summary/drink.html" . }}
 {{end }}
 
-{{ if (eq (.Param "micropub" ) "food") }}
+{{ if (eq (.Param "micropub" ) "ate") }}
 {{ partial "micropub/summary/food.html" . }}
 {{end }}
 
