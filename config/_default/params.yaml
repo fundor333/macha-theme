@@ -1,4 +1,5 @@
 ShowFullTextinRSS: true
 
 maciaimage:
-  imgclass: "img-fluid d-block mx-auto"
+  imgclass: "rounded-lg shadow-2xl"
+  pictureclass: "flex place-content-center"

@@ -1,0 +1,84 @@
+{{ with (eq .license "CC0 1.0" )}}
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL" href="{{ $.workURL }}">{{$.title }}</a>
+        by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ $.authorURL }}"> {{ $.author.name }} </a>
+        is marked with
+        <a href="http://creativecommons.org/publicdomain/zero/1.0" target="_blank" rel="license noopener noreferrer" >CC0 1.0</a>
+      </p><p class="flex justify-center">
+        <img  src="/img/cc/cc.svg">
+        <img  src="/img/cc/zero.svg">
+    </p>
+{{ end }}
+{{ with (eq .license "CC BY 4.0" )}}
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL" href="{{ $.workURL }}">{{$.title }}</a>
+        by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ $.authorURL }}"> {{ $.author.name }} </a>
+        is licensed under
+        <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="license noopener noreferrer" >CC BY 4.0</a>
+      </p><p class="flex justify-center">
+        <img  src="/img/cc/cc.svg">
+        <img  src="/img/cc/by.svg">
+    </p>
+{{ end }}
+{{ with (eq .license "CC BY-SA 4.0" )}}
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL" href="{{ $.workURL }}">{{$.title }}</a>
+        by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ $.authorURL }}"> {{ $.author.name }} </a>
+        is licensed under
+        <a href="http://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="license noopener noreferrer" >CC BY-SA 4.0</a>
+      </p><p class="flex justify-center">
+        <img  src="/img/cc/cc.svg">
+        <img  src="/img/cc/by.svg">
+        <img  src="/img/cc/sa.svg">
+    </p>
+{{ end }}
+{{ with (eq .license "CC BY-ND 4.0" )}}
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL" href="{{ $.workURL }}">{{$.title }}</a>
+        by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ $.authorURL }}"> {{ $.author.name }} </a>
+        is licensed under
+        <a href="http://creativecommons.org/licenses/by-nd/4.0" target="_blank" rel="license noopener noreferrer" >CC BY-ND 4.0</a>
+      </p><p class="flex justify-center">
+        <img  src="/img/cc/cc.svg">
+        <img  src="/img/cc/by.svg">
+        <img  src="/img/cc/nd.svg">
+    </p>
+{{ end }}
+{{ with (eq .license "CC BY-NC 4.0" )}}
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL" href="{{ $.workURL }}">{{$.title }}</a>
+        by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ $.authorURL }}"> {{ $.author.name }} </a>
+        is licensed under
+        <a href="http://creativecommons.org/licenses/by-nc/4.0" target="_blank" rel="license noopener noreferrer" >CC BY-NC 4.0</a>
+      </p><p class="flex justify-center">
+        <img  src="/img/cc/cc.svg">
+        <img  src="/img/cc/by.svg">
+        <img  src="/img/cc/nc.svg">
+    </p>
+{{ end }}
+{{ with (eq .license "CC BY-NC-SA 4.0" )}}
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL" href="{{ $.workURL }}">{{$.title }}</a>
+        by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ $.authorURL }}"> {{ $.author.name }} </a>
+        is licensed under
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" target="_blank" rel="license noopener noreferrer" >CC BY-NC-SA 4.0</a>
+      </p><p class="flex justify-center">
+        <img  src="/img/cc/cc.svg">
+        <img  src="/img/cc/by.svg">
+        <img  src="/img/cc/nc.svg">
+        <img  src="/img/cc/sa.svg">
+    </p>
+{{ end }}
+{{ with (eq .license "CC BY-NC-ND 4.0" )}}
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL" href="{{ $.workURL }}">{{$.title }}</a>
+        by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ $.authorURL }}"> {{ $.author.name }} </a>
+        is licensed under
+        <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank" rel="license noopener noreferrer" >CC BY-NC-ND 4.0</a>
+      </p><p class="flex justify-center">
+        <img  src="/img/cc/cc.svg">
+        <img  src="/img/cc/by.svg">
+        <img  src="/img/cc/nc.svg">
+        <img  src="/img/cc/nd.svg">
+    </p>
+{{ end }}

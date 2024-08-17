@@ -31,7 +31,7 @@
           <figcaption class="figure-caption">{{ $.Description }}</figcaption>
         </figure>
 
-
+        <div>
         {{ if isset .Params "license" }}
             {{ partial "cc-license.html" (dict "license" .Params.license "title" $image.Title "workURL" $.Page.Permalink "author" $.Site.Params.Author "authorURL" $.Site.BaseURL) }}
         {{ else }}
@@ -39,10 +39,13 @@
             {{ partial "cc-license.html" (dict "license" $.Site.Params.photolicense "title" $image.Title "workURL" $.Page.Permalink "author" $.Site.Params.Author "authorURL" $.Site.BaseURL) }}
             {{ end }}
         {{ end }}
+        </div>
 
         {{ with .Exif }}
-        <p class="prose-lg">Metadata</p>
         <table>
+          <caption class="caption-bottom">
+            Meta data of the photo
+          </caption>
           {{ with $image.Title }}
           <tr>
             <th scope="col">Title</th>
@@ -144,7 +147,9 @@
       {{ end }}
     {{ end }}
 
+    <div class="grid grid-cols-1 justify-items-start">
   {{- .Content }}
+  </div>
 
   <div class="container">
     {{- partial "webmention_response.html" . -}}
