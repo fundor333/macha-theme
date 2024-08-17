@@ -51,10 +51,10 @@
       <i class="fa-duotone fa-tags"></i>
 
       {{ range .Params.categories }}
-      #<a class="p-category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ .}}</a>,
+      <a class="p-category btn" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">#{{ .}}</a>
       {{ end }}
       {{ with .Params.tags }} {{ range sort . }}
-      #<a class="p-category tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ .}}</a>,
+      <a class="p-category btn" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ .}}</a>
       {{ end }} {{ end }}
     </div>
     <div><i class="fa-duotone fa-mug-tea"></i>{{ if gt .ReadingTime 4 }}<i

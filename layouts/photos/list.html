@@ -4,7 +4,6 @@
   {{ .Content }}
 </div>
 
-
   {{ range .Pages.GroupByDate "2006" }}
   <hr>
   <p class="font-bold prose-invert prose-2xl ">{{ .Key }}</p>
@@ -12,7 +11,6 @@
       {{ range .Pages }}
         {{ .Render "summary" }}
       {{ end }}
-
   {{ end }}
 
 {{ end }}

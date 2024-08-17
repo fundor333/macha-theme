@@ -99,3 +99,15 @@ h4 {
 
 	}
 }
+
+.btn {
+	@apply text-center;
+	@apply flex-auto;
+	@apply relative;
+	@apply inline-block;
+	@apply px-4;
+	@apply py-2;
+	@apply font-medium;
+	@apply hover:text-black;
+	@apply hover:bg-white;
+}
