@@ -37,7 +37,7 @@
         {{ $image := .Fit "1024x1024" }}
 
         <figure class="figure grid grid-cols-1 place-items-center hmedia">
-          <img loading="lazy" class="u-photo rounded-lg shadow-2xl" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Description }}">
+          <img loading="lazy" class="u-photo u-featured rounded-lg shadow-2xl" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Description }}">
           <figcaption class="figure-caption">{{ $.Description }}</figcaption>
         </figure>
 
