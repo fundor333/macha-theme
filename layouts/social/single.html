@@ -4,6 +4,8 @@
 
 {{ define "main"}}
 
+<div class="h-entry">
+
 <a class="u-bridgy-omit-link hidden " href="{{.Permalink}}"></a>
 
 {{ if (eq (.Param "micropub" ) "book") }}
@@ -44,5 +46,6 @@
 
 {{- partial "webmention_response.html" . -}}
 
+</div>
 
 {{end }}

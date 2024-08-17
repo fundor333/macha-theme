@@ -1,35 +1,47 @@
 {{ define "main" }}
 <!--Implementation from https://billglover.me/2023/11/07/creating-a-photography-gallery-with-hugo/ -->
+<div class="h-entry">
+
+  <div class="flow">
+    <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
+    <i class="fa-duotone fa-solid fa-angle-right"></i>
+    <a href="{{.Site.BaseURL}}/photos" class="no-underline h-breadcrumb">Photos</a>
+    <i class="fa-duotone fa-solid fa-angle-right"></i>
+    <a href="{{ .Page.Permalink}}" class="no-underline h-breadcrumb u-url">{{.Title}}</a>
+  </div>
 
 <div class="grid grid-cols-1 place-content-center">
   <div class="grid gap-x-8 grid-cols-1">
       {{ $dataFormat := .Site.Params.dateFormat | default "2006-01-02" }}
       <div class="text-center row-span-1">
-       <time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format $dataFormat }}</time>
+        <time class="dt-published" datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format $dataFormat }}</time>
         {{ if (and .Site.Params.showUpdated (ne .Lastmod .Date)) }}
-        <span>(Updated: <time datetime="{{ .Lastmod }}" itemprop="dateModified">{{ .Lastmod.Format $dataFormat }}</time>)</span>
-      {{ end }}
+          <span>(Updated: <time class="dt-updated" datetime="{{ .Lastmod }}" itemprop="dateModified">{{ .Lastmod.Format $dataFormat }}</time>)</span>
+        {{ end }}
       </div>
 
       <div class="text-center row-span-1">
         {{ with (.GetTerms "tags") }}
-        {{ range . }}
-        <a class="btn " href='{{ "/tags/" | relLangURL }}{{ .LinkTitle | urlize }}'>#{{ .LinkTitle}}</a>
+          {{ range . }}
+            <a class="btn p-category " href='{{ "/tags/" | relLangURL }}{{ .LinkTitle | urlize }}'>#{{ .LinkTitle}}</a>
+          {{ end }}
         {{ end }}
-    {{ end }}
+      </div>
   </div>
-</div>
+
 
   {{ with .Resources.ByType "image" }}
-  <div class="grid grid-cols-1 place-items-center hmedia">
+  <div class="grid grid-cols-1 place-items-center">
 
     {{ range . }}
         {{ $image := .Fit "1024x1024" }}
 
-        <figure class="figure grid grid-cols-1 place-items-center">
+        <figure class="figure grid grid-cols-1 place-items-center hmedia">
           <img loading="lazy" class="u-photo rounded-lg shadow-2xl" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Description }}">
           <figcaption class="figure-caption">{{ $.Description }}</figcaption>
         </figure>
+
+        <a rel="author" class="p-author h-card no-underline " href="{{ $.Site.BaseURL }}"> <i class="fa-duotone fa-solid fa-typewriter"></i> {{$.Site.Params.Author.name }}</a>
 
         <div>
         {{ if isset .Params "license" }}
@@ -147,9 +159,9 @@
       {{ end }}
     {{ end }}
 
-    <div class="grid grid-cols-1 justify-items-start">
-  {{- .Content }}
-  </div>
+    <div class="grid grid-cols-1 justify-items-start e-content">
+      {{- .Content }}
+    </div>
 
   <div class="container">
     {{- partial "webmention_response.html" . -}}
@@ -157,6 +169,10 @@
 
   {{- partial "syndication.html" . -}}
 
+
+
+
+  </div>
 
 </div>
 {{- end }}

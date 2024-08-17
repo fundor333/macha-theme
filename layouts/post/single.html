@@ -63,7 +63,8 @@
       7 }}<i class="fa-duotone fa-mug-tea"></i>{{ if gt .ReadingTime 10 }}<i
         class="fa-duotone fa-mug-tea"></i>{{ end }}{{ end }}{{
       end }}
-      Reading time {{.ReadingTime}} minutes | <i class="fa-duotone fa-pen-nib"></i> Word count {{.WordCount}}
+      Reading time {{.ReadingTime}} minutes | <i class="fa-duotone fa-pen-nib"></i> Word count {{.WordCount}} |<a rel="author" class="p-author h-card no-underline " href="{{ .Site.BaseURL }}"> <i class="fa-duotone fa-solid fa-typewriter"></i> {{.Site.Params.Author.name }}</a>
+
     </div>
   </div>
 
