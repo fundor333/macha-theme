@@ -4,7 +4,7 @@
         <p class="prose-lg">{{.Content}}</p>
       </div class="justify-items-center flex space-x-4">
         {{ range $.Site.Data.about }}
-        <a href="{{.url}}" target="_blank" rel="me"  class="text-center flex-auto relative inline-block px-4 py-2 font-medium group hover:text-black hover:bg-white">{{ .label | safeHTML }} {{	.name }}</a>
+        <a href="{{.url}}" target="_blank" rel="me"  class="btn ">{{ .label | safeHTML }} {{	.name }}</a>
         {{ end }}
     </div>
 {{ end }}

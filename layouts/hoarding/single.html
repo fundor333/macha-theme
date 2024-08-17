@@ -1,0 +1,43 @@
+{{ define "main"}}
+
+<script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ .Site.BaseURL }}"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hoarding",
+      "item": "{{ .Permalink }}"
+    }]
+  }]
+
+</script>
+
+    {{ .Content }}
+
+{{ range $.Site.Data.feed }}
+
+<hr>
+<h2>{{.type}}</h2>
+<div class="prose-ul:list-none ">
+<ul  class="">
+  {{ range .elements }}
+    <li>
+        <a href="{{.url}}" class="u-bookmark-of h-cite">
+          {{.title}}
+        </a>
+      </li>
+  {{end}}
+</ul>
+</div>
+
+{{ end }}
+
+
+{{ end }}

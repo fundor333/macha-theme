@@ -52,6 +52,15 @@
 
 {{ end }}
 
+<h2>Recent Photo</h2>
+
+{{ range  first 10 (where .Site.RegularPages "Section" "photos")  }}
+
+{{ .Render "summary" }}
+
+{{ end }}
+
+
 <h2>Recent Interactions</h2>
 
 {{ range  first 10 (where .Site.RegularPages "Section" "social")  }}
