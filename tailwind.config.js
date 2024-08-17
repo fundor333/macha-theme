@@ -9,6 +9,9 @@ module.exports = {
 			lexend: ["Lexend", "sans-serif"],
 		},
 		extend: {
+			backgroundColor: {
+				'custom-black': '#222222',
+			}
 		},
 	},
 	plugins: [
