@@ -8,9 +8,31 @@
   <hr>
   <p class="font-bold prose-invert prose-2xl ">{{ .Key }}</p>
       <!-- You can add another range here to get individual posts, for example: -->
+      <div  class="grid grid-cols-2 gap-2 h-entry">
       {{ range .Pages }}
-        {{ .Render "summary" }}
+
+        <!--Implementation from https://billglover.me/2023/11/07/creating-a-photography-gallery-with-hugo/ -->
+        <div class="h-entry ">
+            <a href="{{ .Permalink }}" class="content-center ">
+              {{ $banner := index (.Resources.ByType "image") 0 }}
+
+                {{ $tiny := ($banner.Fill "webp 400x300 q90") }}
+                {{ $small := ($banner.Fill "webp 600x450 q90") }}
+                {{ $medium := ($banner.Fill "webp 800x600 q90") }}
+                {{ $large := ($banner.Fill "webp 1200x700 q90") }}
+
+                <img
+                srcset="
+                    {{- with $tiny.RelPermalink -}}{{.}} 480w{{- end -}}
+                    {{- with $small.RelPermalink -}}, {{.}} 768w{{- end -}}
+                    {{- with $medium.RelPermalink -}}, {{.}} 1024w{{- end -}}
+                    {{- with $large.RelPermalink -}}, {{.}} 1366w{{- end -}}"
+                src="{{ $banner.RelPermalink }}"
+                alt="{{ .Description }}" class="rounded-lg shadow-2xl my-0" loading="lazy">
+            </a>
+          </div>
       {{ end }}
+      </div>
   {{ end }}
 
 {{ end }}
