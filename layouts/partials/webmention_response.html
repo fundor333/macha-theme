@@ -6,7 +6,9 @@
           {{ $url = print $url "&target[]=" $sitename . }}
     {{ end }}
 
-    {{ $dataJ := getJSON $url }}
+    {{ $dataJ := dict }}
+    {{ $data_raw := resources.GetRemote $url }}
+    {{ $dataJ = $data_raw | transform.Unmarshal }}
     <div class="container-fluid">
       {{  range $dataJ.children }}
         {{if eq (index . "wm-property") "in-reply-to"}}

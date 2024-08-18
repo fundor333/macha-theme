@@ -5,6 +5,15 @@
 {{ define "main"}}
 
 <div class="h-entry">
+<div class="flow">
+  <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
+  <i class="fa-duotone fa-solid fa-angle-right"></i>
+  <a href="{{.Site.BaseURL}}/social" class="no-underline h-breadcrumb">Social</a>
+  <i class="fa-duotone fa-solid fa-angle-right"></i>
+  <a href="{{ .Page.Permalink}}" class="no-underline h-breadcrumb u-url">{{.Title}}</a>
+</div>
+
+<div class="h-entry">
 
 <a class="u-bridgy-omit-link hidden " href="{{.Permalink}}"></a>
 
@@ -46,6 +55,8 @@
 
 {{- partial "webmention_response.html" . -}}
 
-</div>
+{{- partial "syndication.html" . -}}
 
+</div>
+</div>
 {{end }}

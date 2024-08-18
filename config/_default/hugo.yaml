@@ -4,10 +4,8 @@ languageCode: en
 theme:
   ["github.com/fundor333/macia-indiweb", "github.com/fundor333/macia-image"]
 
-disableRSS: true
 enableRobotsTXT: true
 Paginate: 8
-rssLimit: 10
 enableGitInfo: true
 related:
   includeNewer: true

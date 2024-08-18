@@ -1,5 +1,3 @@
-ShowFullTextinRSS: true
-
 maciaimage:
   imgclass: "rounded-lg shadow-2xl"
   pictureclass: "flex place-content-center"
