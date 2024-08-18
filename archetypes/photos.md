@@ -3,10 +3,9 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 tags:
 description:
-cover:
-images:
+images: []
 resources:
-- title: featured
+- title: "{{ replace .Name "-" " " | title }}"
   src: '_D0A7928-2.jpg'
 ---
 
