@@ -1,6 +1,7 @@
 {{ define "main" }}
 <!--Implementation from https://billglover.me/2023/11/07/creating-a-photography-gallery-with-hugo/ -->
 <div class="h-entry">
+  {{- partial "syndication.html" . -}}
 
   <div class="flow">
     <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
@@ -166,11 +167,6 @@
   <div class="container">
     {{- partial "webmention_response.html" . -}}
   </div>
-
-  {{- partial "syndication.html" . -}}
-
-
-
 
   </div>
 
