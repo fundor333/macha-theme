@@ -4,6 +4,12 @@ languageCode: en
 theme:
   ["github.com/fundor333/macia-indiweb", "github.com/fundor333/macia-image"]
 
+taxonomies:
+  category: categories
+  tag: tags
+  micropub: micropub
+  phototags: phototags
+
 enableRobotsTXT: true
 Paginate: 8
 enableGitInfo: true
@@ -44,7 +50,4 @@ sitemap:
   changefreq: monthly
   filename: sitemap.xml
   priority: 0.5
-taxonomies:
-  category: categories
-  tag: tags
-  micropub: micropub
+

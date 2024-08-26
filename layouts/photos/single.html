@@ -22,10 +22,8 @@
       </div>
 
       <div class="text-center row-span-1">
-        {{ with (.GetTerms "tags") }}
-          {{ range . }}
-            <a class="btn p-category " href='{{ "/tags/" | relLangURL }}{{ .LinkTitle | urlize }}'>#{{ .LinkTitle}}</a>
-          {{ end }}
+        {{ range .Params.phototags }}
+            <span class="m-2 p-category" >#{{ .}}</a>
         {{ end }}
       </div>
   </div>
