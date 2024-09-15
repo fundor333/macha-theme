@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ partial "menu.html" . }}
+
+
+
+      <div class="card-body text-center">
+        <h5 class="card-title">{{.Title}}</h5>
+        <p class="card-text">{{.Content}}</p>
+      </div>
+      <div class="d-grid gap-2 text-center">
+        <ul>
+        {{ range $.Site.Data.about }}
+        <a href="{{.url}}" target="_blank" rel="me" class="card-link py-3 btn">{{ .label | safeHTML }} {{	.name }}</a>
+        {{ end }}
+      </ul>
+      </div>
+
+
+{{ end }}
+

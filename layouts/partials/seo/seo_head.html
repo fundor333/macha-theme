@@ -38,3 +38,6 @@
 
 {{ partial "seo/site_schema.html" . }}
 
+{{ if .Site.Params.author.fediverse}}
+<meta name="fediverse:creator" content="{{.Site.Params.author.fediverse}}" />
+{{end}}

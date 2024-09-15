@@ -5,58 +5,58 @@
 {{ define "main"}}
 
 <div class="h-entry">
-<div class="flow">
-  <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
-  <i class="fa-duotone fa-solid fa-angle-right"></i>
-  <a href="{{.Site.BaseURL}}/social" class="no-underline h-breadcrumb">Social</a>
-  <i class="fa-duotone fa-solid fa-angle-right"></i>
-  <a href="{{ .Page.Permalink}}" class="no-underline h-breadcrumb u-url">{{.Title}}</a>
-</div>
+  <div class="flow">
+    <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
+    <i class="fa-duotone fa-solid fa-angle-right"></i>
+    <a href="{{.Site.BaseURL}}/social" class="no-underline h-breadcrumb">Social</a>
+    <i class="fa-duotone fa-solid fa-angle-right"></i>
+    <a href="{{ .Page.Permalink}}" class="no-underline h-breadcrumb u-url">{{.Title}}</a>
+  </div>
 
-<div class="h-entry">
+  <div class="h-entry">
 
-<a class="u-bridgy-omit-link hidden " href="{{.Permalink}}"></a>
+    <a class="u-bridgy-omit-link hidden " href="{{.Permalink}}"></a>
 
-{{ if (eq (.Param "micropub" ) "book") }}
-{{ partial "micropub/single/book.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "book") }}
+    {{ partial "micropub/single/book.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "bookmark") }}
-{{ partial "micropub/single/bookmark.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "bookmark") }}
+    {{ partial "micropub/single/bookmark.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "drank") }}
-{{ partial "micropub/single/drink.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "drank") }}
+    {{ partial "micropub/single/drink.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "ate") }}
-{{ partial "micropub/single/food.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "ate") }}
+    {{ partial "micropub/single/food.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "like") }}
-{{ partial "micropub/single/like-of.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "like") }}
+    {{ partial "micropub/single/like-of.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "location") }}
-{{ partial "micropub/single/location.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "location") }}
+    {{ partial "micropub/single/location.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "note") }}
-{{ partial "micropub/single/note.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "note") }}
+    {{ partial "micropub/single/note.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "reply") }}
-{{ partial "micropub/single/reply.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "reply") }}
+    {{ partial "micropub/single/reply.html" . }}
+    {{end }}
 
-{{ if (eq (.Param "micropub" ) "repost") }}
-{{ partial "micropub/single/repost.html" . }}
-{{end }}
+    {{ if (eq (.Param "micropub" ) "repost") }}
+    {{ partial "micropub/single/repost.html" . }}
+    {{end }}
 
-{{- partial "webmention_response.html" . -}}
+    {{- partial "webmention_response.html" . -}}
 
-{{- partial "syndication.html" . -}}
+    {{- partial "syndication.html" . -}}
 
-</div>
+  </div>
 </div>
 {{end }}

@@ -6,6 +6,7 @@ feature: "{{ .Name }}.jpg"
 feature_link: ""
 feature_text: "Photo by __ __ on Unsplash"
 tags:
+series: 
 slug: "{{ .Name }}"
 categories: 
 description: ""

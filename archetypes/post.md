@@ -14,5 +14,6 @@ mp-syndicate-to:
 - https://brid.gy/publish/mastodon
 images:
 keywords:
+series:
 ---
 
