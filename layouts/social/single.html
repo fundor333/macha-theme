@@ -6,11 +6,7 @@
 
 <div class="h-entry">
   <div class="flow">
-    <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
-    <i class="fa-duotone fa-solid fa-angle-right"></i>
-    <a href="{{.Site.BaseURL}}/social" class="no-underline h-breadcrumb">Social</a>
-    <i class="fa-duotone fa-solid fa-angle-right"></i>
-    <a href="{{ .Page.Permalink}}" class="no-underline h-breadcrumb u-url">{{.Title}}</a>
+    {{ partial "breadcrumbs.html" . }}
   </div>
 
   <div class="h-entry">

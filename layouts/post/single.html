@@ -29,11 +29,7 @@
 <br>
 
     <div class="flow">
-      <a href="{{.Site.BaseURL}}" class="no-underline h-breadcrumb"><i class="fa-regular fa-house"></i></a>
-      <i class="fa-duotone fa-solid fa-angle-right"></i>
-      <a href="{{.Site.BaseURL}}/post" class="no-underline h-breadcrumb">Post</a>
-      <i class="fa-duotone fa-solid fa-angle-right"></i>
-      <a href="{{ .Page.Permalink}}" class="no-underline h-breadcrumb u-url">{{.Title}}</a>
+      {{ partial "breadcrumbs.html" . }}
     </div>
 
     <h1 class="p-name hidden">

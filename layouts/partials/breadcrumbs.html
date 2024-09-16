@@ -1,0 +1,13 @@
+<div id="breadcrumbs">
+  {{- range .Ancestors.Reverse }}
+  <a href="{{ .RelPermalink }}" class="no-underline h-breadcrumb ">
+    {{ if eq .Title .Site.Title}}
+    <i class="fa-regular fa-house"></i>
+    {{else}}
+    {{ title .Title }}
+    {{end}}
+  </a>
+    <i class="fa-duotone fa-solid fa-angle-right"></i>
+  {{- end }}
+  <a href="{{ .RelPermalink }}" class="no-underline h-breadcrumb ">{{ title .Title }}</a>
+</div>
