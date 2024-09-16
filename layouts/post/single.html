@@ -13,7 +13,7 @@
 {{ $lastmod_h := .Lastmod.Format "2006-01-02 15:04:05" }}
 
 <div class="h-entry">
-  <p class="hidden p-bridgy-twitter-content p-bridgy-mastodon-content">{{ .Title }}:{{ .Description }} - {{ range .Params.categories }}#{{ .}} {{ end }}{{ with .Params.tags }}{{ range sort . }}#{{ .}} {{ end }}{{ end }}</p>
+  <p class="hidden p-bridgy-twitter-content p-bridgy-mastodon-content">{{ .Title }}:{{ .Description }} - {{ range .Params.categories }}<i class="fa-duotone fa-solid fa-hashtag fa-rotate-by fa-sm" style="--fa-rotate-angle: 15deg;"></i> {{ .}} {{ end }}{{ with .Params.tags }}{{ range sort . }}<i class="fa-duotone fa-solid fa-hashtag fa-rotate-by fa-sm" style="--fa-rotate-angle: 15deg;"></i> {{ .}} {{ end }}{{ end }}</p>
 
   <div class="container-fluid  text-justify">
     {{ $image := .Resources.GetMatch "{cover.webp,cover.jpg,cover.png,cover.jpeg}" }}
@@ -51,10 +51,10 @@
       <i class="fa-duotone fa-tags"></i>
 
       {{ range .Params.categories }}
-      <a class="p-category btn" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">#{{ .}}</a>
+      <a class="p-category btn" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"><i class="fa-duotone fa-solid fa-hashtag fa-rotate-by fa-sm" style="--fa-rotate-angle: 15deg;"></i> {{ .}}</a>
       {{ end }}
       {{ with .Params.tags }} {{ range sort . }}
-      <a class="p-category btn" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ .}}</a>
+      <a class="p-category btn" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><i class="fa-duotone fa-solid fa-hashtag fa-rotate-by fa-sm" style="--fa-rotate-angle: 15deg;"></i> {{ .}}</a>
       {{ end }} {{ end }}
     </div>
     <div><i class="fa-duotone fa-mug-tea"></i>{{ if gt .ReadingTime 4 }}<i

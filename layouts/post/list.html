@@ -8,7 +8,7 @@
 
   {{ range .Pages.GroupByDate "2006" }}
   <hr>
-  <p class="font-bold prose-invert prose-2xl ">{{ .Key }}</p>
+  <h2 class="font-bold prose-invert prose-2xl underline " id="{{ .Key }}"><a href="#{{ .Key }}">{{ .Key }}</a></h2>
       <!-- You can add another range here to get individual posts, for example: -->
       {{ range .Pages }}
         {{ .Render "summary" }}
