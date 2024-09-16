@@ -1,20 +1,22 @@
 {{ define "main" }}
-{{ partial "menu.html" . }}
 
-
-
-      <div class="card-body text-center">
-        <h5 class="card-title">{{.Title}}</h5>
-        <p class="card-text">{{.Content}}</p>
-      </div>
-      <div class="d-grid gap-2 text-center">
-        <ul>
+<div class="flex flex-col">
+  <div class="text-center">{{.Content}}</div>
+  <div class="flex flex-col">
         {{ range $.Site.Data.about }}
-        <a href="{{.url}}" target="_blank" rel="me" class="card-link py-3 btn">{{ .label | safeHTML }} {{	.name }}</a>
+    <div class="inline-flex items-center justify-center container mx-auto py-3">
+      <button class="inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 ">
+        <span class="relative px-6 py-4 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 min-w-80 ">
+          <a href="{{.url}}" target="_blank" rel="me" class="no-underline flex flex-2 ">
+            <div class="grow-0">{{ .label | safeHTML }}</div>
+            <div class="grow"> {{	.name }} </div>
+          </a>
+        </span>
+      </button>
+    </div>
         {{ end }}
-      </ul>
-      </div>
-
+  </div>
+</div>
 
 {{ end }}
 
