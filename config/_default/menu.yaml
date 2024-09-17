@@ -5,8 +5,8 @@ main:
   - name: "blog"
     weight: 10
     url: "/post/"
-  - name: cv
-    url: /cv/
+  - name: cosplay
+    url: /cosplay/
     weight: 30
   - name: "photos"
     weight: 20

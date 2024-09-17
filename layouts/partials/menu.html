@@ -3,11 +3,11 @@
   <a href="{{ .URL }}" class="btn ">
     <span class="relative">{{ .Name }}</span>
     </a>
-  {{ end }}
+{{ end }}
 </div>
 
 <hr>
 {{if not .IsHome}}
 {{ partial "breadcrumbs.html" . }}
-{{end}}
 <br>
+{{end}}

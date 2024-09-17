@@ -3,7 +3,6 @@
 
 {{ partial "seo/seo_head.html" . }}
 
-
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
 <script src="https://kit.fontawesome.com/2f3b6e2e4c.js" crossorigin="anonymous"></script>
@@ -17,8 +16,6 @@ It will not work if you mention the exact location like "./assets/style.css".-->
 {{ partial "macia-indiweb/indiweb.html" . }}
 {{ partial "macia-indiweb/authentication.html" . }}
 {{ partial "analytics.html" . }}
-
-
 
 <!-- Gestion AUTOMATIQUE des divers apple-touch-icon.png en resources -->
 {{- $path     := site.Params.logo }}
