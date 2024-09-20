@@ -13,10 +13,10 @@
       {{ range .Pages }}
         <div class=" break-inside-avoid mb-8 h-entry ">
             <a href="{{ .Permalink }}">
-              {{ $banner := index (.Resources.ByType "image") 0 }}
-                <img
-                src="{{ $banner.RelPermalink }}"
-                alt="{{ .Description }}" class="w-full rounded-xl h-auto max-w-full rounded-lg" loading="lazy">
+              {{ $banner := .Page.Resources.GetMatch (index (.Params.images) 0 )}}
+                <figure class="w-full rounded-xl h-auto max-w-full rounded-lg">
+                {{ partial "imgh.html" $banner   }}
+                </figure>
             </a>
           </div>
       {{ end }}
