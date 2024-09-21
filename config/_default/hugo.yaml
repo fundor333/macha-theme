@@ -10,7 +10,6 @@ taxonomies:
   micropub: micropub
   phototags: phototags
 
-enableRobotsTXT: true
 Paginate: 8
 enableGitInfo: true
 related:
@@ -31,23 +30,15 @@ related:
     - name: date
       weight: 10
 
-outputFormats:
-  SearchIndex:
-    baseName: search
-    mediaType: application/json
 outputs:
   section:
     - HTML
-    - RSS
   home:
     - HTML
-    - RSS
-    - SearchIndex
   page:
-    - html
+    - HTML
 
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
   priority: 0.5
-

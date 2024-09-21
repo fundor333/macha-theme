@@ -1,6 +1,10 @@
-<!-- /layouts/_default/rss.xml -->
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+{{- printf "<?xml-stylesheet href=\"/rss.xsl\" type=\"text/xsl\"?>" | safeHTML }}
+
 <rss version="2.0"
-	xmlns:atom="http://www.w3.org/2005/Atom">
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:media="https://www.rssboard.org/media-rss">
+
 	<channel>
 		<title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
 		<link>{{ .Permalink }}</link>
